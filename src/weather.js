@@ -1,5 +1,6 @@
 import React from "react";
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather() {
   return (
