@@ -52,6 +52,37 @@ function weather() {
             id="icon-main-display"
           />
         </div>
+        <ol class="the-upper-part-of-the-main-display-panel">
+          <li class="side-panel alt-upper"></li>
+          <li class="clock-calander alt-upper">
+            <span id="theWeekDayDisplay">Monday</span> |
+            <span id="theTimeHourDisplay"> 00</span>:
+            <span id="theTimeMinDisplay">0</span>
+            <span id="the-am-pm">AM</span>
+          </li>
+          <li class="main-temp-panel alt-upper">
+            <span id="Main-display-temp">0</span>
+            <span class="Celeus">
+              <a
+                class="Celeus-change-colour plus"
+                href="/"
+                onClick={null}
+                id="Celeus-link">
+                °C
+              </a>
+            </span>
+            <span class="Celeus-farinhite-line-breaker">|</span>
+            <span class="farinhite">
+              <a
+                class="Farinhite-change-colour"
+                href="/"
+                onClick={null}
+                id="Farinhite-link">
+                °F
+              </a>
+            </span>
+          </li>
+        </ol>
         <ol class="the-lower-part-of-the-main-display-panel">
           <li class="the-precipition alt-lower">
             Humidity: <span id="the-main-precipition">0</span>%
