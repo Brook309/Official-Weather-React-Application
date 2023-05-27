@@ -1,11 +1,227 @@
 body {
-  margin: 0;
-  font-family: Roboto, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: #011936 !important;
+  background: linear-gradient(to top, #ace0f9 0%, #fff1eb 100%);
+  text-align: center;
+  margin: auto;
+  padding: 28px 0px 193px;
+  font-family: "Jost", sans-serif !important;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+li {
+  display: block;
 }
+
+a {
+  color: #011936;
+}
+
+a:hover {
+  color: var(--mdb-link-hover-color);
+}
+
+a:active {
+  color: var(--mdb-link-hover-color) !important;
+}
+
+.body-outline-containment-for-application {
+  background-color: white;
+  border-radius: 10px;
+  border: 0.5px solid lightcyan;
+  box-shadow: 4px 2px 52px rgb(0 0 0 / 30%);
+  /*box-shadow: 3px 40px 68px rgb(0 0 0 / 30%);*/
+  margin-top: -10px;
+  padding: 272px 25px 25px;
+}
+
+.form-outline .form-control {
+  margin-right: 117px !important;
+}
+
+.input-group {
+  display: grid !important;
+  grid-auto-flow: column !important;
+  width: 100% !important;
+  margin-top: -241px;
+  justify-content: center;
+}
+
+.btn-primary {
+  background-color: #4ac3ff !important;
+}
+
+.name-adjust {
+  cursor: pointer;
+}
+
+.premade-city-search {
+  margin: auto;
+  display: grid;
+  grid-auto-flow: column !important;
+  /* grid-template-columns: repeat(5, 44px); */
+  margin-top: 7px;
+  max-width: 318px;
+  /* width: 100%; */
+  /* justify-content: center; */
+  text-align: center;
+}
+
+.line-breaker {
+  cursor: default;
+  text-align: center;
+}
+
+.main-display-panel {
+  position: relative;
+  top: 22px;
+  left: 25px;
+  text-align: center;
+  margin-top: 45px;
+  margin-bottom: 6px;
+  padding: 0px 10px;
+}
+
+.main-diplay-city-title {
+  position: relative;
+  top: -1px;
+  left: -118px;
+}
+
+.icon-weather {
+  font-size: 81px;
+  position: relative;
+  top: -38px;
+  left: -118px;
+}
+
+.main-display-weather-icon {
+  position: relative;
+  top: 16px;
+  left: 0px;
+}
+
+.side-panel {
+  margin-top: -108px;
+  margin-left: 3px;
+}
+
+.clock-calander {
+  margin-right: 13px;
+}
+
+.main-temp-panel {
+  font-weight: 400;
+  font-size: 50px;
+  position: relative;
+  top: -8px;
+  /*position: relative;
+  top: -30px;
+  left: 86px;*/
+}
+
+.alt-upper {
+  list-style-type: none;
+  text-align: center;
+  position: relative;
+  top: -85px;
+  padding-left: 141px;
+}
+
+.Celeus {
+  font-size: 15px;
+  position: relative;
+  top: -26px;
+  left: 6px;
+}
+
+.Celeus-farinhite-line-breaker {
+  font-size: 15px;
+  position: relative;
+  top: -27px;
+  left: 15px;
+}
+
+.farinhite {
+  font-size: 15px;
+  position: relative;
+  top: -26px;
+  left: 23px;
+}
+
+.plus {
+  color: var(--mdb-link-hover-color);
+}
+
+.the-upper-part-of-the-main-display-panel {
+  margin: 0px;
+  padding: 0px;
+}
+
+.the-lower-part-of-the-main-display-panel {
+  margin: 0px;
+  padding: 0px;
+}
+
+.the-precipition {
+  font-size: 13px;
+  /*position: relative;
+  top: -20px;
+  left: 90px;*/
+}
+
+.the-wind {
+  font-size: 13px;
+  margin-left: -5px;
+}
+
+.alt-lower {
+  list-style-type: none;
+  text-align: center;
+  position: relative;
+  top: -35px;
+  padding-left: 108px;
+}
+
+.the-description {
+  text-align: center;
+  position: relative;
+  top: -81px;
+  right: 118px;
+}
+
+.row {
+  justify-content: center;
+  margin-bottom: 5px;
+  margin-left: -35px;
+}
+
+.col-2 {
+  display: grid;
+  text-align: center;
+  justify-content: center;
+}
+
+.mini {
+  display: block;
+  margin-left: 2px;
+  font-size: 17px;
+}
+
+.forecast-day {
+  margin: 0px 0px;
+}
+
+.space-for-icon {
+  left: -5px;
+  margin: 12px 0px 12px 7px;
+}
+
+.Author {
+  color: black;
+  padding-left: 18px;
+}
+
+.the-git-link {
+  text-decoration: underline;
+}
+
+/*max-width: 941px*/
