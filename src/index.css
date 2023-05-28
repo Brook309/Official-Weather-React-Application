@@ -1,5 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap");
 
+@media (min-width: 1200px) {
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container {
+    max-width: 941px !important;
+  }
+}
+
+.container {
+  max-width: 941px !important;
+}
+
 body {
   color: #011936 !important;
   background: linear-gradient(to top, #ace0f9 0%, #fff1eb 100%);
