@@ -5,10 +5,18 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather() {
   let [UpdateLaunch, warmingUp] = useState(false);
-  let [cityData, newCityInfo] = useState("");
+  let [cityData, newCityInfo] = useState({});
 
   function cityDataLaurchLive(response) {
-    newCityInfo(response.data.city);
+    newCityInfo({
+      cityname: response.data.city,
+      temperature: response.data.temperature.current,
+      img: response.data.condition.icon_url,
+      description: response.data.condition.description,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+    });
+
     warmingUp(true);
   }
 
@@ -55,11 +63,11 @@ function weather() {
           <h1
             className="main-diplay-city-title"
             id="main-title-display-search-city">
-            {cityData}
+            {cityData.cityname}
           </h1>
           <div className="icon-weather">
             <img
-              src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/clear-sky-day.png"
+              src={cityData.img}
               alt="weather icon"
               className="main-display-weather-icon"
               id="icon-main-display"
@@ -74,7 +82,9 @@ function weather() {
               <span id="the-am-pm">AM</span>
             </li>
             <li className="main-temp-panel alt-upper">
-              <span id="Main-display-temp">0</span>
+              <span id="Main-display-temp">
+                {Math.floor(cityData.temperature)}
+              </span>
               <span className="Celeus">
                 <a
                   className="Celeus-change-colour plus"
@@ -98,16 +108,17 @@ function weather() {
           </ol>
           <ol className="the-lower-part-of-the-main-display-panel">
             <li className="the-precipition alt-lower">
-              Humidity: <span id="the-main-precipition">0</span>%
+              Humidity:
+              <span id="the-main-precipition">{cityData.humidity}</span>%
             </li>
             <li className="the-wind alt-lower">
-              Wind: <span id="the-main-wind-speed">0</span> km/h
+              Wind: <span id="the-main-wind-speed">{cityData.wind}</span> km/h
             </li>
           </ol>
           <div
             className="the-description"
             id="main-display-weather-description">
-            Loading
+            {cityData.description}
           </div>
         </div>
       </div>
