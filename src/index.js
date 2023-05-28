@@ -11,7 +11,7 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Weather />
+    <Weather  vaule=""/>
   </React.StrictMode>
 );
 

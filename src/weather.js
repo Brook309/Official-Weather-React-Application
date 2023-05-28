@@ -4,11 +4,11 @@ import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather() {
-  let [UpdateLaunch, warmingUp] = useState(false);
-  let [cityData, newCityInfo] = useState({});
+  let [cityData, newCityInfo] = useState({ updateLaunch: false });
 
   function cityDataLaurchLive(response) {
     newCityInfo({
+      updateLaunch: true,
       cityname: response.data.city,
       temperature: response.data.temperature.current,
       img: response.data.condition.icon_url,
@@ -16,16 +16,14 @@ function weather() {
       humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
     });
-
-    warmingUp(true);
   }
 
-  if (UpdateLaunch) {
+  if (cityData.updateLaunch) {
     return (
       <div className="htmlCode">
         {/*Search Bar*/}
         <MDBInputGroup>
-          <MDBInput label="Enter City Name" onClick={newCityInfo} />
+          <MDBInput label="Enter City Name" onClick={quickStart} />
           <MDBBtn rippleColor="dark">
             <MDBIcon icon="search" />
           </MDBBtn>
