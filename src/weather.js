@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
+
+import WeatherDate from "./weatherdate";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather(props) {
-  console.log(navigator.geolocation.getCurrentPosition);
-
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
 
   function cityDataLaurchLive(response) {
+    console.log(response.data);
     newCityInfo({
       updateLaunch: true,
       cityname: response.data.city,
+      date: new Date(response.data.time * 1000),
       temperature: response.data.temperature.current,
       img: response.data.condition.icon_url,
       description: response.data.condition.description,
@@ -76,10 +78,12 @@ function weather(props) {
           <ol className="the-upper-part-of-the-main-display-panel">
             <li className="side-panel alt-upper"></li>
             <li className="clock-calander alt-upper">
-              <span id="theWeekDayDisplay">Monday</span> |
-              <span id="theTimeHourDisplay"> 00</span>:
-              <span id="theTimeMinDisplay">0</span>
-              <span id="the-am-pm">AM</span>
+              <span id="theWeekDayDisplay">
+                <WeatherDate date={cityData.date} />
+              </span>{" "}
+              |<span id="theTimeHourDisplay"> {cityData.date.getHours()}</span>:
+              <span id="theTimeMinDisplay">{cityData.date.getMinutes()}</span>
+              {/* <span id="the-am-pm">AM</span>*/}
             </li>
             <li className="main-temp-panel alt-upper">
               <span id="Main-display-temp">
@@ -124,7 +128,6 @@ function weather(props) {
       </div>
     );
   } else {
-    let city = "paris";
     const apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.CurrentLocation}&key=${apiKey}&units=metric
 `;
