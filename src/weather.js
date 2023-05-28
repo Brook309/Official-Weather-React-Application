@@ -3,7 +3,9 @@ import axios from "axios";
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function weather() {
+function weather(props) {
+  console.log(navigator.geolocation.getCurrentPosition);
+
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
 
   function cityDataLaurchLive(response) {
@@ -23,7 +25,7 @@ function weather() {
       <div className="htmlCode">
         {/*Search Bar*/}
         <MDBInputGroup>
-          <MDBInput label="Enter City Name" onClick={quickStart} />
+          <MDBInput label="Enter City Name" onClick={""} />
           <MDBBtn rippleColor="dark">
             <MDBIcon icon="search" />
           </MDBBtn>
@@ -124,7 +126,7 @@ function weather() {
   } else {
     let city = "paris";
     const apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.CurrentLocation}&key=${apiKey}&units=metric
 `;
     axios.get(apiUrl).then(cityDataLaurchLive);
 
