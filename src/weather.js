@@ -8,7 +8,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
   let [cityChoosen, liveInput] = useState(props.CurrentLocation);
-
+  let [cityChoos, live] = useState("");
   function cityDataLaurchLive(response) {
     console.log(response.data);
     newCityInfo({
@@ -152,8 +152,36 @@ function weather(props) {
     axios.get(apiUrl).then(cityDataLaurchLive);
   }
 
+  /*
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  console.log("Geolocation not supported");
+}
+
+function success(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+}
+
+function error() {
+  console.log("Unable to retrieve your location");
+}
   /*let [cityData, newCityInfo] = useState("");
-  }*/
+  }
+  `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+  
+    function GottenGeo(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+    }
+
+    navigator.geolocation.getCurrentPosition({ GottenGeo });
+  
+  
+  */
 }
 
 export default weather;
