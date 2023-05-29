@@ -7,6 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
+  let [cityDat, newCity] = useState(false);
 
   function cityDataLaurchLive(response) {
     console.log(response.data);
@@ -22,12 +23,16 @@ function weather(props) {
     });
   }
 
+  function SendOutLocation(event) {
+    newCity(event.target.value);
+  }
+
   if (cityData.updateLaunch) {
     return (
-      <div className="htmlCode">
+      <div className="container">
         {/*Search Bar*/}
         <MDBInputGroup>
-          <MDBInput label="Enter City Name" onClick={""} />
+          <MDBInput label="Enter City Name" onSubmit={SendOutLocation} />
           <MDBBtn rippleColor="dark">
             <MDBIcon icon="search" />
           </MDBBtn>
@@ -129,11 +134,8 @@ function weather(props) {
     );
   } else {
     const apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.CurrentLocation}&key=${apiKey}&units=metric
-`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.CurrentLocation}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(cityDataLaurchLive);
-
-    return "wait";
   }
 
   /*let [cityData, newCityInfo] = useState("");
