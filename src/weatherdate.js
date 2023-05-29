@@ -11,10 +11,9 @@ function weatherDate(props) {
     "Friday",
     "Saturday",
   ];
-  console.log(props.date);
-  console.log(props.date.getDay());
+
   let day = writtenDays[props.date.getDay()];
 
-  return { day };
+  return day;
 }
 export default weatherDate;
