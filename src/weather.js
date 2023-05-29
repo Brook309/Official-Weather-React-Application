@@ -7,7 +7,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
-  let [cityDat, newCity] = useState(false);
+  let [cityChoosen, liveInput] = useState(props.CurrentLocation);
 
   function cityDataLaurchLive(response) {
     console.log(response.data);
@@ -23,20 +23,34 @@ function weather(props) {
     });
   }
 
-  function SendOutLocation(event) {
-    newCity(event.target.value);
+  function CityTarget(event) {
+    console.log(event);
+    const apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${event}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(cityDataLaurchLive);
+  }
+
+  function getCity(event) {
+    event.preventDefault();
+    CityTarget(cityChoosen);
+  }
+
+  function getInput(event) {
+    liveInput(event.target.value);
   }
 
   if (cityData.updateLaunch) {
     return (
       <div className="container">
         {/*Search Bar*/}
-        <MDBInputGroup>
-          <MDBInput label="Enter City Name" onSubmit={SendOutLocation} />
-          <MDBBtn rippleColor="dark">
-            <MDBIcon icon="search" />
-          </MDBBtn>
-        </MDBInputGroup>
+        <form onSubmit={getCity}>
+          <MDBInputGroup>
+            <MDBInput label="Enter City Name" onChange={getInput} />
+            <MDBBtn rippleColor="dark">
+              <MDBIcon icon="search" />
+            </MDBBtn>
+          </MDBInputGroup>
+        </form>
         {/*Search Bar*/}
         {/*premade city search*/}
         <div className="premade-city-search">
