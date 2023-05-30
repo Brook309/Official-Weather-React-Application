@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
-
+import WeatherTemp from "./weatherTempCon";
 import WeatherDate from "./weatherdate";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
   let [cityChoosen, liveInput] = useState(props.CurrentLocation);
-  let [cityChoos, live] = useState("");
+  /*let [cityChoos, live] = useState("");*/
   function cityDataLaurchLive(response) {
     console.log(response.data);
     newCityInfo({
@@ -105,28 +105,7 @@ function weather(props) {
               {/* <span id="the-am-pm">AM</span>*/}
             </li>
             <li className="main-temp-panel alt-upper">
-              <span id="Main-display-temp">
-                {Math.floor(cityData.temperature)}
-              </span>
-              <span className="Celeus">
-                <a
-                  className="Celeus-change-colour plus"
-                  href="/"
-                  onClick={null}
-                  id="Celeus-link">
-                  °C
-                </a>
-              </span>
-              <span className="Celeus-farinhite-line-breaker">|</span>
-              <span className="farinhite">
-                <a
-                  className="Farinhite-change-colour"
-                  href="/"
-                  onClick={null}
-                  id="Farinhite-link">
-                  °F
-                </a>
-              </span>
+              <WeatherTemp data={cityData.temperature} />
             </li>
           </ol>
           <ol className="the-lower-part-of-the-main-display-panel">
@@ -153,6 +132,7 @@ function weather(props) {
   }
 
   /*
+  
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 } else {

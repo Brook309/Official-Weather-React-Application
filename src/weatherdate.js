@@ -17,3 +17,6 @@ function weatherDate(props) {
   return day;
 }
 export default weatherDate;
+/*
+ let [fDeploy, FConvertNow] = useState("F");
+ let [cDeploy, cConvertNow] = useState("");*/
