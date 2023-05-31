@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./index.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weatherTemp(props) {
@@ -21,7 +22,7 @@ function weatherTemp(props) {
         <span id="Main-display-temp">{Math.floor(props.data)}</span>
         <span className="Celeus">
           <a
-            className="Celeus-change-colour"
+            className="Celeus-change-colour plus"
             href="/"
             onClick={celConverTemp}
             id="Celeus-link">
@@ -31,7 +32,7 @@ function weatherTemp(props) {
         <span className="Celeus-farinhite-line-breaker">|</span>
         <span className="farinhite">
           <a
-            className="Farinhite-change-colour plus"
+            className="Farinhite-change-colour"
             href="/"
             onClick={fConverTemp}
             id="Farinhite-link">
