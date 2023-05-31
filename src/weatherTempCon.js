@@ -2,22 +2,20 @@ import React, { useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weatherTemp(props) {
-  let [a, b] = useState("F");
-  let [c, d] = useState("");
-  console.log((props.data * 9) / 5 + 32);
+  let [TempDeploy, FConvertNow] = useState("C");
 
   function fConverTemp(event) {
     event.preventDefault();
     console.log((props.data * 9) / 5 + 32);
-    b((props.data * 9) / 5 + 32);
+    FConvertNow("F");
   }
 
   function celConverTemp(event) {
     event.preventDefault();
-    d(props.data);
+    FConvertNow("C");
   }
 
-  if (a === "F") {
+  if (TempDeploy === "C") {
     return (
       <div className="weatherTemp">
         <span id="Main-display-temp">{Math.floor(props.data)}</span>
@@ -45,7 +43,9 @@ function weatherTemp(props) {
   } else {
     return (
       <div className="weatherTemp">
-        <span id="Main-display-temp">{Math.floor(a)}</span>
+        <span id="Main-display-temp">
+          {Math.floor((props.data * 9) / 5 + 32)}
+        </span>
         <span className="Celeus">
           <a
             className="Celeus-change-colour"
@@ -71,6 +71,10 @@ function weatherTemp(props) {
 }
 
 export default weatherTemp;
+
+/*
+ let [fDeploy, FConvertNow] = useState("F");
+ let [cDeploy, cConvertNow] = useState("");*/
 
 /*  let [a, b] = useState("celeuis");
   let [c, d] = useState(props.data);
