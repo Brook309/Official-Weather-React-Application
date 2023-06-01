@@ -3,6 +3,7 @@ import axios from "axios";
 import { MDBInputGroup, MDBInput, MDBIcon, MDBBtn } from "mdb-react-ui-kit";
 import WeatherTemp from "./weatherTempCon";
 import WeatherDate from "./weatherdate";
+import Forecast from "./weatherForecast";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function weather(props) {
@@ -122,6 +123,9 @@ function weather(props) {
             id="main-display-weather-description">
             {cityData.description}
           </div>
+        </div>
+        <div className="alt row align-items-start">
+          <Forecast data="hi" />
         </div>
       </div>
     );
