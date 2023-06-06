@@ -1,6 +1,5 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import axios from "axios";
 import "./index.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 import Weather from "./weather";

@@ -10,8 +10,8 @@ function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
   let [cityChoosen, liveInput] = useState(props.CurrentLocation);
   /*let [cityChoos, live] = useState("");*/
+
   function cityDataLaurchLive(response) {
-    console.log(response.data);
     newCityInfo({
       updateLaunch: true,
       cityname: response.data.city,
@@ -124,9 +124,7 @@ function weather(props) {
             {cityData.description}
           </div>
         </div>
-        <div className="alt row align-items-start">
-          <Forecast data="hi" />
-        </div>
+        <Forecast data={cityData.cityname} />
       </div>
     );
   } else {
@@ -136,7 +134,6 @@ function weather(props) {
   }
 
   /*
-  
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error);
 } else {
@@ -169,3 +166,5 @@ function error() {
 }
 
 export default weather;
+
+/**/
