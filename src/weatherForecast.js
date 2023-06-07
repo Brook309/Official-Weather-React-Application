@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import "./weatherForcastLiveData.js";
+import WeatherForcastLiveData from "./weatherForcastLiveData.js";
 import "./index.css";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import axios from "axios";
 
 function weatherForcast(props) {
-  let [forcastApplied, infoCollected] = useState("");
   let [loaded, setLoaded] = useState(false);
+  let [forcastApplied, infoCollected] = useState("");
+
+  console.log(forcastApplied);
   function infoTransfer(response) {
     console.log(response.data);
     setLoaded(true);
@@ -19,11 +21,13 @@ function weatherForcast(props) {
         <div className="forcastHere">
           <ul>
             <MDBRow className="alt row align-items-start mb-3">
-              <weatherForcastLiveData data={forestApplied[0]} />
-              <weatherForcastLiveData data={forestApplied[1]} />
-              <weatherForcastLiveData data={forestApplied[3]} />
-              <weatherForcastLiveData data={forestApplied[4]} />
-              <weatherForcastLiveData data={forestApplied[5]} />
+              <MDBCol size="4">
+                <WeatherForcastLiveData data={forcastApplied[0]} />
+                <WeatherForcastLiveData data={forcastApplied[1]} />
+                <WeatherForcastLiveData data={forcastApplied[3]} />
+                <WeatherForcastLiveData data={forcastApplied[4]} />
+                <WeatherForcastLiveData data={forcastApplied[5]} />
+              </MDBCol>
             </MDBRow>
           </ul>
         </div>
