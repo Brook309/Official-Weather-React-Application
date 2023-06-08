@@ -10,8 +10,9 @@ function weather(props) {
   let [cityData, newCityInfo] = useState({ updateLaunch: false });
   let [cityChoosen, liveInput] = useState(props.CurrentLocation);
   /*let [cityChoos, live] = useState("");*/
-
   function cityDataLaurchLive(response) {
+    console.log(cityData.cityname);
+    console.log(response.data.city);
     newCityInfo({
       updateLaunch: true,
       cityname: response.data.city,
@@ -53,33 +54,6 @@ function weather(props) {
           </MDBInputGroup>
         </form>
         {/*Search Bar*/}
-        {/*premade city search*/}
-        <div className="premade-city-search">
-          <a
-            className="city-name-one name-adjust"
-            href="/"
-            onClick={null}
-            id="TokyoSearch">
-            Tokyo
-          </a>
-          <div className="line-breaker">|</div>
-          <a
-            className="city-name-two name-adjust"
-            href="/"
-            onClick={null}
-            id="MelbSearch">
-            Melbourne
-          </a>
-          <div className="line-breaker">|</div>
-          <a
-            className="city-name-three name-adjust"
-            href="/"
-            onClick={null}
-            id="HonoluluSearch">
-            Honolulu
-          </a>
-        </div>
-        {/* premade city search end*/}
         {/* main display panel */}
         <div className="main-display-panel">
           <h1

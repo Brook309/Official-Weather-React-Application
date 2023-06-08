@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherForcastLiveData from "./weatherForcastLiveData.js";
 import "./index.css";
 import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
@@ -8,9 +8,11 @@ function weatherForcast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forcastApplied, infoCollected] = useState("");
 
-  console.log(forcastApplied);
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.data]);
+
   function infoTransfer(response) {
-    console.log(response.data);
     setLoaded(true);
     infoCollected(response.data.daily);
   }
@@ -21,12 +23,20 @@ function weatherForcast(props) {
         <div className="forcastHere">
           <ul>
             <MDBRow className="alt row align-items-start mb-3">
-              <MDBCol size="4">
+              <MDBCol size="2">
                 <WeatherForcastLiveData data={forcastApplied[0]} />
+              </MDBCol>
+              <MDBCol size="2">
                 <WeatherForcastLiveData data={forcastApplied[1]} />
+              </MDBCol>
+              <MDBCol size="2">
+                <WeatherForcastLiveData data={forcastApplied[2]} />
+              </MDBCol>
+              <MDBCol size="2">
                 <WeatherForcastLiveData data={forcastApplied[3]} />
+              </MDBCol>
+              <MDBCol size="2">
                 <WeatherForcastLiveData data={forcastApplied[4]} />
-                <WeatherForcastLiveData data={forcastApplied[5]} />
               </MDBCol>
             </MDBRow>
           </ul>
@@ -34,6 +44,7 @@ function weatherForcast(props) {
       </MDBContainer>
     );
   } else {
+    console.log(props.data);
     const apiKey = "84docd86f0tb9793eacd34e7e56f1b9f";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${props.data}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(infoTransfer);

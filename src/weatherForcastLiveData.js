@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./index.css";
-import { MDBCol } from "mdb-react-ui-kit";
-import { data } from "autoprefixer";
 
 function weatherForcastLiveData(props) {
-  console.log(props);
-
   function timeConvertDay() {
-    console.log(props.data.time);
     let date = new Date(props.data.time * 1000);
     let Day = date.getDay();
     let Days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
